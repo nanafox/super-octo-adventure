@@ -5,9 +5,10 @@ capabilities = {
     'help answer your questions': '/ask',
     'give you a random quote in almost in any category': '/quote',
 }
+
 def start_bot():
-    running = True    
-    def show_capabilities():    
+    running = True
+    def show_capabilities():
         print("Here's a list of what I can do. I could")
         for what, how in capabilities.items():
             print(f'\t- {what.capitalize()}. Use {how} to prompt me')
@@ -15,23 +16,31 @@ def start_bot():
         
         start_bot()
 
-    while running:    
-        prompt = input('How can I help?: ')
-        if prompt in capabilities.values():
-            if prompt == '/ask':
-                print(chat())
-            if prompt == '/quote':
-                print(random_quotes())    
+    while running:
+        try:
+            prompt = input('\n(Use /show to list my capabilities)\nHow can I help?: ')
+            if prompt in capabilities.values():
+                if prompt == '/ask':
+                    print(chat())
+                if prompt == '/quote':
+                    print(random_quotes())
+                    
+            elif prompt == '/quit':
+                print('Have a nice day...')
+                quit(0)
                 
-        elif prompt == '/quit':
+            else:
+                show_capabilities()
+        except EOFError:
+            print("\nCtrl_D received")
             quit(0)
+        except KeyboardInterrupt:
+            print()
+            quit(1)
             
-        else:
-            show_capabilities()
-
         
 def chat():
-    try:    
+    try:
         ask = input("Ask a question: ")
         if ask.lower() == 'quit':
             print('Have a nice day!')
