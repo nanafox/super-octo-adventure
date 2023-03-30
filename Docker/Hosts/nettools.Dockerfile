@@ -5,8 +5,13 @@
 # use the latest Ubuntu image
 FROM ubuntu
 
+# maintainer's details
+LABEL author.name="Maxwell Nana Forson"
+LABEL author.email="nanaforsonjnr@gmail.com"
+
 # set working directory to the home of root user
 WORKDIR /root
+
 
 # update and install required tools
 RUN apt update
