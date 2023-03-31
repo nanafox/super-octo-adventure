@@ -2,7 +2,7 @@
 
 ## What's in it?
 
-### **Network Rechability Testing Tools**
+### **Network Reachability Testing Tools**
 
 - **ping** (aliased to `ping -c 5`)
   - Supports both IPv4 and IPv6 testing
