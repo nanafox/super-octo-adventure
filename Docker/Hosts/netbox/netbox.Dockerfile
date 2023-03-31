@@ -32,9 +32,9 @@ RUN apt install -y ufw nftables
 RUN apt install -y ipcalc-ng vim nano less
 
 # copy the README file and banner text
-COPY ./netbox.README.md /
-COPY ./banner.txt /etc/motd
+COPY Docker/Hosts/netbox/netbox.README.md /
+COPY Docker/Hosts/netbox/banner.txt /etc/motd
 
 # Add a few aliases
-COPY ./bash_aliases /root/.bash_aliases
+COPY Docker/Hosts/netbox/bash_aliases /root/.bash_aliases
 RUN echo "cat /etc/motd" >> /etc/bash.bashrc
