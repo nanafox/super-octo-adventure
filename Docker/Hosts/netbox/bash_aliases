@@ -8,4 +8,4 @@ alias tracepath6='tracepath -6'
 alias cls='clear'
 
 # an easy way to read the README file
-alias netbox-info='less /netbox.README.md'
+alias netbox-info="cat /netbox.README.md | tr -d '*' | less"

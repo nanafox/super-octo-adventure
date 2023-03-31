@@ -1,5 +1,6 @@
 # this docker file is used for network testing and monitoring
-# it contains enough tools to thoroghly test a network as well as pulling information
+# it contains enough tools to thoroughly test a network.
+# The technician use a few pen test tools to further confirm the security of the network
 
 
 # use the latest Ubuntu image
@@ -19,13 +20,20 @@ RUN apt install -y rsyslog rsyslog-snmp snmp snmpd snmptrapd
 
 # network connectivity testing tools
 RUN apt install -y net-tools iproute2 bash-completion \
-    inetutils-ping inetutils-traceroute iputils-tracepath
+    inetutils-traceroute iputils-{ping,tracepath,arping}
 
-# install a CLI network capture tool - Tshark can be manually installed
-RUN apt install -y nmap tcpdump
+# install CLI network capture tools - Tshark can be manually installed
+RUN apt install -y nmap tcpdump dsniff
+
+# firewall and security tools
+RUN apt install -y ufw nftables
 
 # IP Address tools and text editors
 RUN apt install -y ipcalc-ng vim nano
+
+# copy the README file and banner text
+RUN cat ./netbox.README.md | tr -d '*' > /.
+COPY ./banner /etc/motd
 
 # Add a few aliases
 COPY ./bash_aliases /root/.bash_aliases
