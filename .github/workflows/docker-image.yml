@@ -2,9 +2,11 @@ name: Build and Push Docker Image
 
 on:
   push:
-    branches: [ "main" ]
+    branches: ["main"]
+    path: [ "Docker/**" ]
   pull_request:
-    branches: [ "main" ]
+    branches: ["main"]
+    path: [ "Docker/**" ]
 
 jobs:
   login:
