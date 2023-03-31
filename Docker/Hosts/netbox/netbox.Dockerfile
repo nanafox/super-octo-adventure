@@ -9,6 +9,7 @@ FROM ubuntu
 # maintainer's details
 LABEL author.name="Maxwell Nana Forson"
 LABEL author.email="nanaforsonjnr@gmail.com"
+LABEL version="1.0"
 
 # set working directory to the home of root user
 WORKDIR /root

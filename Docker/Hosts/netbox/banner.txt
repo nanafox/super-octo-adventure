@@ -1,10 +1,8 @@
 
 Welcome to the Network Technician's Toolbox.
-There a few things you need to know to effectively use this box.
 
-Most of this information can be found on the containers repository.
 For a quick overview, take a look at the README file, located at /netbox.README.md
 
-At anytime, you can use the "netbox-info" command get this overview.
+At anytime, use the "netbox-info" command get this overview.
 Have a good troubleshooting session.
 
