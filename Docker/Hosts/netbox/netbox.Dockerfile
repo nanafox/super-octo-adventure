@@ -9,6 +9,7 @@ FROM ubuntu
 # maintainer's details
 LABEL author.name="Maxwell Nana Forson"
 LABEL author.email="nanaforsonjnr@gmail.com"
+LABEL author.github="https://github.com/nanafox"
 LABEL version="1.0"
 
 # set working directory to the home of root user
