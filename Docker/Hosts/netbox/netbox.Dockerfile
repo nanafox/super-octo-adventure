@@ -38,4 +38,3 @@ COPY ./banner.txt /etc/motd
 # Add a few aliases
 COPY ./bash_aliases /root/.bash_aliases
 RUN echo "cat /etc/motd" >> /etc/bash.bashrc
-
