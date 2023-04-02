@@ -3,6 +3,8 @@
 # a few shorthands for common commands
 alias ping='ping -c 5'
 alias tracepath6='tracepath -6'
+alias netswp='nmap -sn -n'
+alias osscan='nmap -nA'
 
 # quick and easy way to clear the terminal screen
 alias cls='clear'

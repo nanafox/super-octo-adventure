@@ -22,7 +22,8 @@ RUN apt install -y rsyslog rsyslog-snmp snmp snmpd snmptrapd
 
 # network connectivity testing tools
 RUN apt install -y net-tools iproute2 bash-completion \
-    inetutils-traceroute iputils-ping iputils-tracepath iputils-arping
+    inetutils-traceroute iputils-ping iputils-tracepath \
+    iputils-arping
 
 # install CLI network capture tools - Tshark can be manually installed
 RUN apt install -y nmap tcpdump dsniff htop
@@ -33,10 +34,12 @@ RUN apt install -y ufw nftables
 # IP Address tools and text editors
 RUN apt install -y ipcalc-ng vim nano less
 
-# copy the README file and banner text
-COPY Docker/Hosts/netbox/netbox.README.md /
-COPY Docker/Hosts/netbox/banner.txt /etc/motd
+# add needed files
+ADD Docker/Hosts/netbox/netbox.README.md /
+ADD Docker/Hosts/netbox/banner.txt /etc/motd
+ADD Docker/scripts /scripts
 
 # Add a few aliases
-COPY Docker/Hosts/netbox/bash_aliases /root/.bash_aliases
+ADD Docker/Hosts/netbox/bash_aliases /root/.bash_aliases
 RUN echo "cat /etc/motd" >> /etc/bash.bashrc
+ENV PATH $PATH:/scripts

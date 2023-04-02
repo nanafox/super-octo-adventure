@@ -1,4 +1,4 @@
-name: Docker Build and Publish CI
+name: Docker Build and Push CI
 
 on:
   push:
@@ -21,5 +21,13 @@ jobs:
         uses: docker/build-push-action@v4
         with:
           push: true
-          tags: nanafox/netbox:latest,nanafox/netbox:v1
-          file: Docker/Hosts/netbox/netbox.Dockerfile
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/netbox:latest,${{ secrets.DOCKERHUB_USERNAME }}/netbox:v1
+          file: Docker/Hosts/netbox/Dockerfile
+      -
+        name: Update repo description
+        uses: peter-evans/dockerhub-description@v3
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_SECRET }}
+          repository: ${{ secrets.DOCKERHUB_USERNAME }}/netbox
+          readme-filepath: Docker/Hosts/netbox/netbox.README.md

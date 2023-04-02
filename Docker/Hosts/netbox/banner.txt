@@ -3,6 +3,6 @@ Welcome to the Network Technician's Toolbox.
 
 For a quick overview, take a look at the README file, located at /netbox.README.md
 
-At anytime, use the "netbox-info" command get this overview.
-Have a good troubleshooting session.
+At anytime, use the "netbox-info" command to get this overview.
+Have fun troubleshooting.
 
