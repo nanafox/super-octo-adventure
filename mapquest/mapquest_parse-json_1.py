@@ -3,7 +3,7 @@ import urllib.parse
 import os
 
 
-def make_dashes(length=60, style='=') -> int:
+def make_dashes(length=60, style='='):
     print(style * length)
 
 
@@ -19,7 +19,8 @@ def mapquest(orig, dest):
     main_api = "https://www.mapquestapi.com/directions/v2/route?"
     api_key = os.getenv('MAPQUEST_API_KEY')
     
-    # Error code 611 (info dict) => the start and/or destination parameters were not received. This checks the parameters before sending it to the API server.
+    # Error code 611 (info dict) => the start and/or destination parameters were not received.
+    # This checks the parameters before sending it to the API server.
     if '' not in (orig, dest):
         # ensures that the available tokens are not wasted with empty requests
         url = main_api + urllib.parse.urlencode(
